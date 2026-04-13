@@ -1,0 +1,27 @@
+name            = "wp-cf-storage"
+main            = "src/index.js"
+compatibility_date  = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# ── D1 Database ────────────────────────────────────────────
+# After: wrangler d1 create wp_cf_db
+[[d1_databases]]
+binding       = "DB"
+database_name = "wp_cf_db"
+database_id   = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# ── KV Namespace ──────────────────────────────────────────
+# After: wrangler kv:namespace create WP_CF_KV
+[[kv_namespaces]]
+binding    = "KV"
+id         = "REPLACE_WITH_YOUR_KV_ID"
+preview_id = "REPLACE_WITH_YOUR_KV_PREVIEW_ID"
+
+# ── Secrets (NEVER put in wrangler.toml) ─────────────────
+# wrangler secret put API_KEY
+# → openssl rand -hex 32  (paste the output as the secret value)
+
+# ── Routes (optional: custom domain) ─────────────────────
+# [[routes]]
+# pattern = "api.yourdomain.com/wp/*"
+# zone_name = "yourdomain.com"
