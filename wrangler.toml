@@ -7,14 +7,14 @@ compatibility_flags = ["nodejs_compat"]
 # After: wrangler d1 create wp_cf_db
 [[d1_databases]]
 binding       = "DB"
-database_name = "wp_cf_db"
-database_id   = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_name = "cf-wp-storage"
+database_id   = "c9a0ad18-9c6f-4217-87d2-f9ef21b71610
 
 # ── KV Namespace ──────────────────────────────────────────
 # After: wrangler kv:namespace create WP_CF_KV
 [[kv_namespaces]]
 binding    = "KV"
-id         = "REPLACE_WITH_YOUR_KV_ID"
+id         = "b5ad3d1dfca94089aa6ad5fbbb43e55c"
 preview_id = "REPLACE_WITH_YOUR_KV_PREVIEW_ID"
 
 # ── Secrets (NEVER put in wrangler.toml) ─────────────────
